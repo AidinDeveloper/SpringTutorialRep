@@ -10,7 +10,8 @@ public class Test {
 		Resource r = new ClassPathResource("applicationContext.xml");
 		BeanFactory factory = new XmlBeanFactory(r);
 
-		Employee s = (Employee) factory.getBean("e");
-		s.show();
+		Question q = (Question) factory.getBean("q");
+		q.displayInfo();
+
 	}
 }
