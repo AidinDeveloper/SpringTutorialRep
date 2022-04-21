@@ -4,22 +4,16 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="address1" class="com.javatpoint.Address">
-		<property name="addressLine1" value="51,Lohianagar"></property>
-		<property name="city" value="Ghaziabad"></property>
-		<property name="state" value="UP"></property>
-		<property name="country" value="India"></property>
+	<bean id="q" class="com.javatpoint.Question">
+		<property name="id" value="1"></property>
+		<property name="name" value="What is Java?"></property>
+		<property name="answers">
+			<list>
+				<value>Java is a programming language</value>
+				<value>Java is a platform</value>
+				<value>Java is an Island</value>
+			</list>
+		</property>
 	</bean>
 
-	<bean id="address2" class="com.javatpoint.Address">
-		<constructor-arg value="Ferdous"></constructor-arg>
-		<constructor-arg value="Tehran"></constructor-arg>		
-		<property name="state" value="Tehran"></property>
-		<property name="country" value="Iran"></property>
-	</bean>
-	<bean id="obj" class="com.javatpoint.Employee">
-		<property name="id" value="1"></property>
-		<property name="name" value="Sachin Yadav"></property>
-		<property name="address" ref="address2"></property>
-	</bean>
-</beans>
+</beans>  
