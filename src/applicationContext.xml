@@ -5,8 +5,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="StudentBean" class="com.javatpoint.Student">
-		<property name="name" value="Aidin Masroor"></property>
+	<bean id="e" class="com.javatpoint.Employee">
+		<constructor-arg value="10" type="int"></constructor-arg>
 	</bean>
-
+	
+	<bean id="a" class="com.javatpoint.Employee">	
+		<constructor-arg value="Aidin" type="String"></constructor-arg>
+	</bean>
+	
+	<bean id="b" class="com.javatpoint.Employee">	
+		<constructor-arg value="10" type="int"></constructor-arg>
+		<constructor-arg value="Hamid" type="String"></constructor-arg>
+	</bean>
+	
+	
+	
 </beans>  
