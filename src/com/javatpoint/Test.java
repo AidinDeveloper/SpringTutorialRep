@@ -12,11 +12,5 @@ public class Test {
 
 		Employee s = (Employee) factory.getBean("e");
 		s.show();
-
-		Employee a = (Employee) factory.getBean("a");
-		a.show();
-
-		Employee b = (Employee) factory.getBean("b");
-		b.show();
 	}
 }

@@ -3,21 +3,20 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
-                   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="a1" class="com.javatpoint.Address">
+		<constructor-arg value="OSh"></constructor-arg>
+		<constructor-arg value="Ont"></constructor-arg>
+		<constructor-arg value="CA"></constructor-arg>
+	</bean>
+
 
 	<bean id="e" class="com.javatpoint.Employee">
-		<constructor-arg value="10" type="int"></constructor-arg>
+		<constructor-arg value="32" type="int"></constructor-arg>
+		<constructor-arg value="Aidin M"></constructor-arg>
+		<constructor-arg>
+			<ref bean="a1" />
+		</constructor-arg>
 	</bean>
-	
-	<bean id="a" class="com.javatpoint.Employee">	
-		<constructor-arg value="Aidin" type="String"></constructor-arg>
-	</bean>
-	
-	<bean id="b" class="com.javatpoint.Employee">	
-		<constructor-arg value="10" type="int"></constructor-arg>
-		<constructor-arg value="Hamid" type="String"></constructor-arg>
-	</bean>
-	
-	
-	
 </beans>  
