@@ -8,12 +8,12 @@ import java.util.Map.Entry;
 public class Question {
 	private int id;
 	private String name;
-	private Map<String, String> answers;
+	private Map<Answer, User> answers;
 
 	public Question() {
 	}
 
-	public Question(int id, String name, Map<String, String> answers) {
+	public Question(int id, String name, Map<Answer, User> answers) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -24,11 +24,16 @@ public class Question {
 		System.out.println("question id:" + id);
 		System.out.println("question name:" + name);
 		System.out.println("Answers....");
-		Set<Entry<String, String>> set = answers.entrySet();
-		Iterator<Entry<String, String>> itr = set.iterator();
+		Set<Entry<Answer, User>> set = answers.entrySet();
+		Iterator<Entry<Answer, User>> itr = set.iterator();
 		while (itr.hasNext()) {
-			Entry<String, String> entry = itr.next();
-			System.out.println("Answer:" + entry.getKey() + " Posted By:" + entry.getValue());
+			Entry<Answer, User> entry = itr.next();
+			Answer ans = entry.getKey();
+			User user = entry.getValue();
+			System.out.println("Answer Information:");
+			System.out.println(ans);
+			System.out.println("Posted By:");
+			System.out.println(user);
 		}
 	}
 }
