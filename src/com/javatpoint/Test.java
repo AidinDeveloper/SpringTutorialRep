@@ -2,6 +2,8 @@ package com.javatpoint;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -10,13 +12,8 @@ public class Test {
 		Resource r = new ClassPathResource("applicationContext.xml");
 		BeanFactory factory = new XmlBeanFactory(r);
 
-		Employee e1 = (Employee) factory.getBean("e2");
-		e1.show();
-		System.out.println(e1);
-		
-		
-		e1 = (Employee) factory.getBean("e1");
-		e1.show();
-		System.out.println(e1);
+		Employee e = (Employee) factory.getBean("obj");
+		e.displayInfo();
+
 	}
 }
