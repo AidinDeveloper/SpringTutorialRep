@@ -4,37 +4,20 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans  
                     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="answer1" class="com.javatpoint.Answer">
-		<constructor-arg value="1"></constructor-arg>
-		<constructor-arg
-			value="Java is a Programming Language"></constructor-arg>
-		<constructor-arg value="12/12/2001"></constructor-arg>
-	</bean>
-	<bean id="answer2" class="com.javatpoint.Answer">
-		<constructor-arg value="2"></constructor-arg>
-		<constructor-arg value="Java is a Platform"></constructor-arg>
-		<constructor-arg value="12/12/2003"></constructor-arg>
+	<bean id="e1" class="com.javatpoint.Employee">
+		<constructor-arg value="101"></constructor-arg>
+		<constructor-arg value="Sachin"></constructor-arg>
 	</bean>
 
-	<bean id="user1" class="com.javatpoint.User">
-		<constructor-arg value="1"></constructor-arg>
-		<constructor-arg value="Arun Kumar"></constructor-arg>
-		<constructor-arg value="arun@gmail.com"></constructor-arg>
-	</bean>
-	<bean id="user2" class="com.javatpoint.User">
-		<constructor-arg value="2"></constructor-arg>
-		<constructor-arg value="Varun Kumar"></constructor-arg>
-		<constructor-arg value="Varun@gmail.com"></constructor-arg>
+	<bean id="address1" class="com.javatpoint.Address">
+		<constructor-arg value="21,Lohianagar"></constructor-arg>
+		<constructor-arg value="Ghaziabad"></constructor-arg>
+		<constructor-arg value="UP"></constructor-arg>
+		<constructor-arg value="USA"></constructor-arg>
 	</bean>
 
-	<bean id="q" class="com.javatpoint.Question">
-		<constructor-arg value="10"></constructor-arg>
-		<constructor-arg value="What is Java?"></constructor-arg>
-		<constructor-arg>
-			<map>
-				<entry key-ref="answer1" value-ref="user1"></entry>
-				<entry key-ref="answer2" value-ref="user2"></entry>
-			</map>
-		</constructor-arg>
+	<bean id="e2" class="com.javatpoint.Employee" parent="e1">
+		<constructor-arg ref="address1"/>
 	</bean>
-</beans>  
+
+</beans> 
