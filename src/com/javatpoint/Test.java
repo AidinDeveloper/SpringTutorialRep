@@ -13,5 +13,8 @@ public class Test {
 		e.m();
 		System.out.println("calling k...");
 		e.k();
+		e.k(1);
+		e.k(1,"s1");
+		e.k("s1","s2");
 	}
 }
