@@ -1,11 +1,11 @@
 package com.javatpoint;
 
 public class Operation {
-	public void msg() {
-		System.out.println("msg() is invoked");
-	}
-
-	public void display() {
-		System.out.println("display() is invoked");
+	public void validate(int age) throws Exception {
+		if (age < 18) {
+			throw new ArithmeticException("Not valid age");
+		} else {
+			System.out.println("Thanks for vote");
+		}
 	}
 }
