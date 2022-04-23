@@ -1,19 +1,23 @@
 package com.javatpoint;
-
-import org.aspectj.lang.JoinPoint;  
-import org.aspectj.lang.annotation.Aspect;  
-import org.aspectj.lang.annotation.After;  
-import org.aspectj.lang.annotation.Pointcut;  
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;  
+import org.aspectj.lang.annotation.Aspect;
 
 @Aspect  
 public class TrackOperation{  
-    @Pointcut("execution(* Operation.*(..))")  
-    public void k(){}//pointcut name  
-      
-    @After("k()")//applying pointcut on after advice  
-    public void myadvice(JoinPoint jp)//it is advice (after advice)  
+    @AfterReturning(  
+              pointcut = "execution(* Operation.*(..))",  
+              returning= "result")  
+                
+    public void myadvice(JoinPoint jp,Object result)//it is advice (after returning advice)  
     {  
         System.out.println("additional concern");  
-        //System.out.println("Method Signature: "  + jp.getSignature());  
+        System.out.println("Method Signature: "  + jp.getSignature());  
+        System.out.println("Result in advice: "+result);  
+        System.out.println("end of after returning advice...");  
     }  
+    
+    
+    
 }
