@@ -6,7 +6,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		Printable p = (Printable) context.getBean("p");
-		p.print();
+		Operation e = (Operation) context.getBean("opBean");
+		System.out.println("calling msg...");
+		e.msg();
+		System.out.println("calling m...");
+		e.m();
+		System.out.println("calling k...");
+		e.k();
 	}
 }
