@@ -9,8 +9,8 @@
 
 	<aop:aspectj-autoproxy />
 
-	<bean id="opBean" class="com.javatpoint.Operation"/>
-	<bean id="trackAspect" class="com.javatpoint.TrackOperation"/>
+	<bean id="opBean" class="com.javatpoint.Operation" />
+	<bean id="trackAspect" class="com.javatpoint.TrackOperation" />
 
 	<aop:config>
 		<aop:aspect id="myaspect" ref="trackAspect">
@@ -19,6 +19,11 @@
 				expression="execution(* com.javatpoint.Operation.*(..))" />
 			<aop:before method="myadvice"
 				pointcut-ref="pointCutBefore" />
+			
+			<aop:pointcut id="pointCutAfter"
+				expression="execution(* com.javatpoint.Operation.*(..))" />
+			<aop:after method="myadvice2" pointcut-ref="pointCutAfter" />
+			
 		</aop:aspect>
 	</aop:config>
 
