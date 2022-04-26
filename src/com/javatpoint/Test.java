@@ -4,14 +4,21 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Test {
+
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		Operation e = (Operation) context.getBean("opBean");
-		System.out.println("calling msg...");
-		e.msg();
-		System.out.println("calling m...");
-		e.m();
-		System.out.println("calling k...");
-		e.k();
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		EmployeeDao dao = (EmployeeDao) ctx.getBean("edao");
+		// int status = dao.saveEmployee(new Employee(102, "Amit", 35000));
+		// System.out.println(status);
+
+		/*
+		 * int status = dao.updateEmployee(new Employee(102, "Sonoo1", 15000));
+		 * //returns the number of affected rows System.out.println(status);
+		 */
+
+		Employee e = new Employee();
+		e.setId(102);
+		int status = dao.deleteEmployee(e);//returns the number of affected rows System.out.println(status);
+		System.out.println(status);
 	}
 }

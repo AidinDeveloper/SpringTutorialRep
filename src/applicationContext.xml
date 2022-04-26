@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans  
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
-    http://www.springframework.org/schema/aop   
-    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<aop:aspectj-autoproxy />
+	<bean id="ds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url"
+			value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="hr" />
+		<property name="password" value="hr" />
+	</bean>
 
-	<bean id="opBean" class="com.javatpoint.Operation" />
-	<bean id="trackAspect" class="com.javatpoint.TrackOperation" />
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
 
-	<aop:config>
-		<aop:aspect id="myaspect" ref="trackAspect">
-			<!-- @Before -->
-			<aop:pointcut id="pointCutBefore"
-				expression="execution(* com.javatpoint.Operation.*(..))" />
-			<aop:before method="myadvice"
-				pointcut-ref="pointCutBefore" />
-			
-			<aop:pointcut id="pointCutAfter"
-				expression="execution(* com.javatpoint.Operation.*(..))" />
-			<aop:after method="myadvice2" pointcut-ref="pointCutAfter" />
-			
-		</aop:aspect>
-	</aop:config>
+	<bean id="edao" class="com.javatpoint.EmployeeDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
 
 </beans>  
