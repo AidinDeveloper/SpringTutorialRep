@@ -1,29 +1,34 @@
 package com.javatpoint;
 
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 public class EmployeeDao {
-	private JdbcTemplate template;
+	private NamedParameterJdbcTemplate jdbcTemplate;
 
-	public void setJdbcTemplate(JdbcTemplate template) {
-		this.template = template;
+	public EmployeeDao(NamedParameterJdbcTemplate jdbcTemplate) {
+		super();
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
-	public List<Employee> getAllEmployees() {
-		return template.query("select * from employee", new RowMapper<Employee>() {
-
+	public Object save(Employee e) {
+		String query="insert into employee values (:id,:name,:salary)";
+		Map<String,Object>map=new HashMap<String,Object>();
+		map.put("id", e.getId());
+		map.put("name",e.getName());
+		map.put("salary",e.getSalary());
+		
+		return jdbcTemplate.execute(query, map, new PreparedStatementCallback() {
 			@Override
-			public Employee mapRow(ResultSet rs, int rowNumber) throws SQLException {
-				Employee e=new Employee();
-				e.setId(rs.getInt("id"));
-				e.setName(rs.getString("name"));
-				e.setSalary(rs.getInt("salary"));
-				return e;
-			}
-		});
+			public Object doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
+				return ps.executeUpdate();
+			}			
+		});		
 	}
 }
