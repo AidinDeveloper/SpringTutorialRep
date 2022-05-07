@@ -11,7 +11,7 @@ public class Test {
 		Resource r = new ClassPathResource("applicationContext.xml");
 		BeanFactory factory = new XmlBeanFactory(r);
 		EmployeeDao dao = (EmployeeDao) factory.getBean("edao");
-		Object o=dao.save(new Employee(2223, "sonoo", 50000));
+		Object o=dao.update(new Employee(22101223, "sonoo", 50000));
 		System.out.println("Done");
 	}
 }

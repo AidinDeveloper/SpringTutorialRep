@@ -1,34 +1,23 @@
 package com.javatpoint;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.PreparedStatementCallback;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;  
 public class EmployeeDao {
-	private NamedParameterJdbcTemplate jdbcTemplate;
+	SimpleJdbcTemplate template;
 
-	public EmployeeDao(NamedParameterJdbcTemplate jdbcTemplate) {
-		super();
-		this.jdbcTemplate = jdbcTemplate;
+	public EmployeeDao(SimpleJdbcTemplate template) {  
+	        this.template = template;  
 	}
 
-	public Object save(Employee e) {
-		String query="insert into employee values (:id,:name,:salary)";
-		Map<String,Object>map=new HashMap<String,Object>();
-		map.put("id", e.getId());
-		map.put("name",e.getName());
-		map.put("salary",e.getSalary());
+	public int update(Employee e) {
+		/*
+		 * String query = "update employee set name=? where id=?"; return
+		 * template.update(query, e.getName(), e.getId());
+		 */
+
+		//String query = "insert into employee values (?,?,?)";
+		//return template.update(query, e.getId(),e.getName(),e.getSalary());
 		
-		return jdbcTemplate.execute(query, map, new PreparedStatementCallback() {
-			@Override
-			public Object doInPreparedStatement(PreparedStatement ps) throws SQLException, DataAccessException {
-				return ps.executeUpdate();
-			}			
-		});		
+		String query = "Delete from  employee where id=?";
+		return template.update(query, e.getId());
 	}
 }
