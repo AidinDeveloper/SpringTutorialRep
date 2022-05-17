@@ -1,0 +1,14 @@
+package com.javatpoint;
+
+import org.springframework.core.SpringVersion;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HelloController1 {
+	@RequestMapping("/hello1")
+	public String redirect() {
+		System.out.println(SpringVersion.getVersion());
+		return "viewpage1";
+	}
+}

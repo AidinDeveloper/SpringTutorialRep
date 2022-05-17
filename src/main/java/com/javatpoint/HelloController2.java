@@ -1,17 +1,14 @@
 package com.javatpoint;
 
+import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HelloController {
-	@RequestMapping("/hello")
+public class HelloController2 {
+	@RequestMapping("/hello2")
 	public String redirect() {
-		return "viewpage";
-	}
-
-	@RequestMapping("/helloagain")
-	public String display() {
-		return "final";
+		System.out.println(SpringVersion.getVersion());
+		return "viewpage2";
 	}
 }
