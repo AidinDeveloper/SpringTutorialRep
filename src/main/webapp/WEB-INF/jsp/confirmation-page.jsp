@@ -1,3 +1,4 @@
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +14,7 @@
 			<li>${meal}</li>
 		</c:forEach>
 	</ul>
+	Leaving From : ${reservation.cityFrom}
+	<br> Going To : ${reservation.cityTo}
 </body>
 </html>
