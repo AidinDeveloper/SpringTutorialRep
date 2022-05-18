@@ -1,3 +1,6 @@
-
-<a href="empform">Add Employee</a>
-<a href="viewemp">View Employees</a>
+<!DOCTYPE html>
+<html>
+<body>
+	<a href="viewemp/1">View Employees</a>
+</body>
+</html>
