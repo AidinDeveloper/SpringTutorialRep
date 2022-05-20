@@ -3,10 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-	<bean id="xstreamMarshallerBean"
-		class="org.springframework.oxm.xstream.XStreamMarshaller">
-		<property name="annotatedClasses"
-			value="com.javatpoint.Employee"></property>
+	<bean id="castorMarshallerBean"
+		class="org.springframework.oxm.castor.CastorMarshaller">
+		<property name="targetClass" value="com.javatpoint.Employee"></property>
+		<property name="mappingLocation" value="mapping.xml"></property>
 	</bean>
 </beans>  

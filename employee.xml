@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dp:Employee xmlns:dp="http://www.javatpoint.com" id="101">
+	<dp:name>Sonoo Jaiswal</dp:name>
+	<dp:salary>100000.0</dp:salary>
+</dp:Employee>
