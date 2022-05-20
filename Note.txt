@@ -1,0 +1,31 @@
+Passing parameters to another JSP file using <jsp:include> tag
+
+1----------------------------------------------------
+
+
+<c:forEach var="instanceVar" items="${instanceList}">
+    <jsp:include page="instance.jsp">
+        <jsp:param name="myVar" value="${instanceVar}"/>
+    </jsp:include>
+</c:forEach>
+
+In the instance.jsp
+
+<c:out value="${param.myVar}"/>
+
+
+
+2----------------------------------------------------
+
+
+The solution that work for me is the following
+
+<c:set var="instance" value="${semaforoData}" scope="request"/>
+<jsp:include page="semaforo.jsp"/>
+
+in the jsp file, the code is:
+
+<c:forEach var='itemSemaforo' items='${semaforoData}' varStatus='loopSemaforo'>
+Print data
+</c:forEach>
+
