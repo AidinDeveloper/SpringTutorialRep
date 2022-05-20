@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:oxm="http://www.springframework.org/schema/oxm"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
-http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
-        http://www.springframework.org/schema/oxm  
-        http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd">
-	<oxm:jaxb2-marshaller id="jaxbMarshallerBean">
-		<oxm:class-to-be-bound
-			name="com.javatpoint.Employee" />
-	</oxm:jaxb2-marshaller>
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="xstreamMarshallerBean"
+		class="org.springframework.oxm.xstream.XStreamMarshaller">
+		<property name="annotatedClasses"
+			value="com.javatpoint.Employee"></property>
+	</bean>
 </beans>  

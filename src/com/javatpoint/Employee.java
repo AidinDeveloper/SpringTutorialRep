@@ -1,16 +1,10 @@
 package com.javatpoint;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "employee")
 public class Employee {
 	private int id;
 	private String name;
 	private float salary;
 
-	@XmlAttribute(name = "id")
 	public int getId() {
 		return id;
 	}
@@ -19,7 +13,6 @@ public class Employee {
 		this.id = id;
 	}
 
-	@XmlElement(name = "name")
 	public String getName() {
 		return name;
 	}
@@ -28,7 +21,6 @@ public class Employee {
 		this.name = name;
 	}
 
-	@XmlElement(name = "salary")
 	public float getSalary() {
 		return salary;
 	}
