@@ -13,13 +13,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @ComponentScan("com.javatpoint")
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	//Aidin: Here you can see multiple roles for a single user! 
+	// Aidin: Here you can see multiple roles for a single user!
 	@Bean
 	public UserDetailsService userDetailsService() {
 		// ensure the passwords are encoded properly
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-		manager.createUser(users.username("Aidin").password("1234").roles("USER","ADMIN2").build());
+		manager.createUser(users.username("Aidin").password("1234").roles("USER", "ADMIN2").build());
 		manager.createUser(users.username("admin").password("admin123").roles("ADMIN").build());
 		return manager;
 	}

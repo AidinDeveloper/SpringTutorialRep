@@ -1,13 +1,18 @@
-<html>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home Page</title>
 </head>
 <body>
-	<span style="color: green">Login Successful!</span> ?
-	<a href="logout" style="text-decoration: none;">logout</a>
+	Welcome to admin page!
+	<a href="logout">logout</a>
 	<br>
 	<br>
-	<a href="update" style="text-decoration: none;">Update Record</a>
+	<security:authorize access="hasRole('ADMIN')">  
+    Hello ADMIN    
+    </security:authorize>
+    
+	<security:csrfInput />
 </body>
 </html>
