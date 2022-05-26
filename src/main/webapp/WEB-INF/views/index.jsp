@@ -1,12 +1,11 @@
-
 <html>
 <head>
-<title>Home Page</title>
+<title>Index Page</title>
 </head>
 <body>
-	<h3>
-		Welcome to Javatpoint! <br>
-	</h3>
-	<a href="admin">Login here</a>
+	Welcome to Javatpoint!
+	<br>
+	<br>
+	<a href="admin">Admin login</a>
 </body>
 </html>

@@ -24,14 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().  
-	      antMatchers("/index", "/user","/").permitAll()  
-	      .antMatchers("/admin").authenticated()  
-	      .and()  
-	      .formLogin()  
-	      .loginPage("/login")  
-	      .and()  
-	      .logout()  
-	      .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));  
+		http.authorizeRequests().antMatchers("/index", "/user", "/").permitAll().antMatchers("/admin").authenticated()
+				.and().formLogin() // It renders a login form
+				.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 	}
 }
