@@ -1,4 +1,5 @@
 /bin/
-/libs
-target
+libs/
+target/
+/target/
 build
