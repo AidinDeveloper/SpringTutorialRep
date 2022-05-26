@@ -5,7 +5,8 @@
 <body>
 	Welcome to Javatpoint!
 	<br>
-	<br>
-	<a href="admin">Admin login</a>
+	<br> Login as:
+	<a href="admin">Admin</a>
+	<a href="user">User</a>
 </body>
 </html>
